@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-screen bg-blue-100">
+      <body className="h-screen bg-cyan-200">
         <Providers>
           <NavBar />
           {children}

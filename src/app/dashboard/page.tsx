@@ -1,9 +1,14 @@
-import React from 'react'
+"use client"
 
-function DashboardPage() {
+import { useSession } from "next-auth/react"
+
+function DashhoardPage() {
+    const {data: session, status} = useSession()
+    console.log(session, status, '///////////////////////////');
+    
   return (
-    <div> DashboardPage</div>
+    <div>DashhoardPage</div>
   )
 }
 
-export default DashboardPage
+export default DashhoardPage
