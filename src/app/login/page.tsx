@@ -25,7 +25,6 @@ function LoginPage() {
     if (res?.error) return setError(res.error)
     if (res?.ok) return router.push('/dashboard')
   }
-  //className="grid h-screen place-items-center"
   return (
 
     <div className="justify-center h-[calc(100vh-4rem)] flex flex-col items-center">
@@ -44,9 +43,6 @@ function LoginPage() {
           <button className="w-32 bg-indigo-500 px-4 py-2 rounded-lg">Iniciar Sesión</button>
         </form>
       </div>
-
-
-
     </div>
 
   )

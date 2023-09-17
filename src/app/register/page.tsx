@@ -7,8 +7,6 @@ import { useRouter } from "next/navigation"
 import ButtonGithub from "@/components/ButtonGithub"
 import ButtonGoogle from "@/components/ButtonGoogle"
 
-import Link from "next/link"
-
 function RegisterPage() {
 
   const router = useRouter()
@@ -41,11 +39,7 @@ function RegisterPage() {
         setError(error.response?.data.message)
       }
       console.log(error);
-
     }
-
-
-
   }
 
   return (
@@ -66,8 +60,6 @@ function RegisterPage() {
           <button className="bg-indigo-500 px-4 py-2 rounded-lg">Registrarse</button>
         </form>
       </div>
-
-
     </div>
   )
 }

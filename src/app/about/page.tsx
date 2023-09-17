@@ -2,11 +2,9 @@
 import { signIn, signOut, useSession } from 'next-auth/react'
 
 function AboutPage() {
-    const {data: session, status} = useSession()
-    console.log(session, '-----', status);
-    
+    const {data: session, status} = useSession()    
   return (
-    <div>AboutPage</div>
+    <div>AboutPage {session?.user?.name}</div>
   )
 }
 
