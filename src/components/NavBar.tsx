@@ -16,11 +16,11 @@ function NavBar() {
           </h1>
         </Link>
         <ul className="flex gap-x-0">
-          <li className="w-[11.25rem] flex items-center justify-center px-4 py-0 text-sky-700 hover:text-sky-900 hover:font-bold">
-            <Link href='/resend'>Enviar Mail Resend</Link>
+          <li className="w-[13rem] flex items-center justify-center px-4 py-0 text-sky-700 hover:text-sky-900 hover:font-bold">
+            <Link href='/resend'>Enviar Mail por Resend</Link>
           </li>
-          <li className="w-[13.3rem] flex items-center justify-center px-4 py-0 text-sky-700 hover:text-sky-900 hover:font-bold">
-            <Link href='/nodemailer'>Enviar Mail Nodemailer</Link>
+          <li className="w-[15.2rem] flex items-center justify-center px-4 py-0 text-sky-700 hover:text-sky-900 hover:font-bold">
+            <Link href='/nodemailer'>Enviar Mail por Nodemailer</Link>
           </li>
           <li className="w-[10.4rem] flex items-center justify-center px-4 py-0 text-sky-700 hover:text-sky-900 hover:font-bold">
             <Link href=''>Enviar WhatsApp</Link>
