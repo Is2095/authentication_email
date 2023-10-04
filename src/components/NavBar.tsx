@@ -1,13 +1,14 @@
 'use client'
 
-import Link from "next/link"
-import { signOut, useSession } from 'next-auth/react'
+import Link from "next/link";
+import { signOut, useSession } from 'next-auth/react';
 
 function NavBar() {
 
-  const { data: session, status } = useSession()
+  const { data: session, status } = useSession();
 
   return (
+
     <nav className="bg-gradient-to-b from-cyan-50 to-cyan-200 pt-4">
       <div className="boder-1 border-black flex justify-between container mx-auto p-4">
         <Link href='/'>
@@ -22,9 +23,9 @@ function NavBar() {
           <li className="w-[15.2rem] flex items-center justify-center px-4 py-0 text-sky-700 hover:text-sky-900 hover:font-bold">
             <Link href='/nodemailer'>Enviar Mail por Nodemailer</Link>
           </li>
-          <li className="w-[10.4rem] flex items-center justify-center px-4 py-0 text-sky-700 hover:text-sky-900 hover:font-bold">
-            <Link href=''>Enviar WhatsApp</Link>
-          </li>
+          {/* <li className="w-[10.4rem] flex items-center justify-center px-4 py-0 text-sky-700 hover:text-sky-900 hover:font-bold">
+            <Link href='/msg_Whatsapp'>Enviar WhatsApp</Link>
+          </li> */}
         </ul>
         <ul className="flex gap-x-0">
           <li className="w-[5rem] flex items-center justify-center p-2">
@@ -66,7 +67,9 @@ function NavBar() {
         </ul>
       </div>
     </nav>
-  )
-}
+    
+  );
 
-export default NavBar
+};
+
+export default NavBar;

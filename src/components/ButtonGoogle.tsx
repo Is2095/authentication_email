@@ -1,10 +1,13 @@
 "use client"
 
-import { useSession, signIn } from "next-auth/react"
+import { useSession, signIn } from "next-auth/react";
 
 function ButtonGoogle() {
-    const { data: session, status } = useSession()
+
+    const { data: session, status } = useSession();
+
     return (
+
         <div>
             <button onClick={() => signIn("google", { callbackUrl: '/', redirect: false })} type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-google" viewBox="0 0 16 16">
@@ -12,7 +15,9 @@ function ButtonGoogle() {
                 </svg>
             </button>
         </div>
-    )
-}
 
-export default ButtonGoogle
+    );
+
+};
+
+export default ButtonGoogle;

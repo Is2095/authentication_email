@@ -1,10 +1,13 @@
 "use client"
 
-import { useSession, signIn } from "next-auth/react"
+import { useSession, signIn } from "next-auth/react";
 
 function ButtonGithub() {
-    const { data: session, status } = useSession()
+
+    const { data: session, status } = useSession();
+
     return (
+
         <div>
             <button onClick={() => signIn("github", { callbackUrl: '/', redirect: false })} type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
@@ -12,7 +15,9 @@ function ButtonGithub() {
                 </svg>
             </button>
         </div>
-    )
-}
 
-export default ButtonGithub
+    );
+
+};
+
+export default ButtonGithub;

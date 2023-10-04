@@ -1,4 +1,5 @@
-import * as yup from 'yup'
+
+import * as yup from 'yup';
 
 export const validationSchema = yup.object({
     email: yup
@@ -22,4 +23,22 @@ export const validationSchema = yup.object({
         .required("Se requiere este campo")
         .min(5, "El motivo no puede tener menos de 5 caracteres")
         .max(50, "Sólo se pueden ingresar 10 caracteres")
-})
+});
+
+export const validationSchemaWhatsapp = yup.object({
+    name: yup
+        .string()
+        .trim()
+        .required("El nombre es requerido")
+        .min(2, "El nombre debe tener más de 1 caracteres")
+        .max(15, "El nombre no debe contener más de 15 caracteres"),
+    mensaje: yup
+        .string()
+        .required("Se requiere este campo")
+        .min(5, "El motivo no puede tener menos de 5 caracteres")
+        .max(50, "Sólo se pueden ingresar 10 caracteres"),
+    numero: yup
+        .string()
+        .matches(/^(?:(?:\+?54?[-\s]?)?(?:9?[-\s]?)?)?(\d{3})(?:[-\s]?\d{7})$/, "Debe ser un número de teléfono")
+        .required("Debe ingresar un número de teléfono")
+});

@@ -1,35 +1,31 @@
-"use client"
+/*"use client"
 
-import { useRouter } from "next/navigation";
-import axios from 'axios';
-import { validationSchema } from '@/utils/validate';
-import { Formik, Form, Field, ErrorMessage, FormikHelpers, FormikProps } from 'formik';
-import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation"
+import axios from 'axios'
+import { validationSchemaWhatsapp } from '@/utils/validate'
+import { Formik, Form, Field, ErrorMessage, FormikHelpers, FormikProps } from 'formik'
+import { useSession } from "next-auth/react"
 
 type TypeData = {
-    email: string
+    numero: string
     name: string
-    motivo: string
-    cuerpo: string
-};
+    mensaje: string
+}
+function WhatsappPage() {
 
-function NodemailerPage() {
-
-    const router = useRouter();
-    const { data: session, status } = useSession();
+    const router = useRouter()
+    const { data: session, status } = useSession()
 
     const initialValues = {
-        email: '',
+        numero: '',
         name: '',
-        motivo: '',
-        cuerpo: '',
-    };
-
+        mensaje: '',
+    }
     const onSubmit = async (values: TypeData, onSubmitProps: FormikHelpers<TypeData>) => {
-
-        const res = await axios.post('/api/node_mailer', { ...values, remitente: session?.user?.email, nameRemitente: session?.user?.name });
-        onSubmitProps.resetForm();
-
+       
+        
+        const res = await axios.post('/api/whatsapp_Msg', { ...values, nameRemitente: session?.user?.name })
+       // onSubmitProps.resetForm()
     }
 
     return (
@@ -38,14 +34,14 @@ function NodemailerPage() {
                 <Formik
                     initialValues={initialValues}
                     onSubmit={onSubmit}
-                    validationSchema={validationSchema}
+                    validationSchema={validationSchemaWhatsapp}
                 >
 
                     {(formik: FormikProps<TypeData>) => {
                         return (
                             <Form className="flex flex-col justify-end items-start">
                                 <div className="w-full flex justify-center">
-                                    <h1 className="pb-2 text-3xl font-bold text-sky-700">Nodemailer</h1>
+                                    <h1 className="pb-2 text-3xl font-bold text-sky-700">Whatsapp</h1>
                                 </div>
 
                                 <h1 className="text-4xl font-bold mb-4">
@@ -54,11 +50,11 @@ function NodemailerPage() {
                                 <div className='w-full h-20'>
                                     <Field
                                         type="text"
-                                        name='email'
-                                        placeholder=" Email del destinatario: "
+                                        name='numero'
+                                        placeholder=" Número del destinatario: "
                                         className="w-full mt-3 p-1 bg-transparent border-2 border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
                                     />
-                                    <ErrorMessage name='email' component='div' className='text-red-600 text-xs font-bold' />
+                                    <ErrorMessage name='numero' component='div' className='text-red-600 text-xs font-bold' />
                                 </div>
 
                                 <div className='w-full h-20'>
@@ -71,25 +67,15 @@ function NodemailerPage() {
                                     <ErrorMessage name='name' component='div' className='text-red-600 text-xs font-bold' />
                                 </div>
 
-                                <div className='w-full h-20'>
-                                    <Field
-                                        type="text"
-                                        name='motivo'
-                                        placeholder=" Motivo: "
-                                        className="w-full mt-3 p-1 bg-transparent border-2 border-s-2 border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
-                                    />
-                                    <ErrorMessage name='motivo' component='div' className='text-red-600 text-xs font-bold' />
-                                </div>
-
                                 <div className='w-full h-40'>
                                     <Field as='textarea'
-                                        name='cuerpo'
+                                        name='mensaje'
                                         placeholder=' Mensaje:'
                                         cols={50}
                                         rows={4}
                                         className="w-full mt-3 p-1 bg-transparent border-2  border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
                                     />
-                                    <ErrorMessage name='cuerpo' component='div' className='text-red-600 text-xs font-bold' />
+                                    <ErrorMessage name='mensaje' component='div' className='text-red-600 text-xs font-bold' />
                                 </div>
 
                                 <div className='w-full flex justify-center'>
@@ -102,8 +88,8 @@ function NodemailerPage() {
                 </Formik>
             </div>
         </div>
-    );
+    )
+}
 
-};
-
-export default NodemailerPage;
+export default WhatsappPage
+*/

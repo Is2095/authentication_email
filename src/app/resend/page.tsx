@@ -1,31 +1,36 @@
 "use client"
 
-import { FormEvent, useState } from 'react'
-import { useRouter } from "next/navigation"
-import axios from 'axios'
-import { validationSchema } from '@/utils/validate'
-import { useFormik, FormikHandlers, Formik, Form, Field, ErrorMessage, FormikHelpers, FormikProps } from 'formik'
+import { FormEvent, useState } from 'react';
+import { useRouter } from "next/navigation";
+import axios from 'axios';
+import { validationSchema } from '@/utils/validate';
+import { useFormik, FormikHandlers, Formik, Form, Field, ErrorMessage, FormikHelpers, FormikProps } from 'formik';
 
 type TypeData = {
     email: string
     name: string
     motivo: string
     cuerpo: string
-}
+};
+
 function ResendPage() {
 
-    const router = useRouter()
+    const router = useRouter();
 
     const initialValues = {
         email: '',
         name: '',
         motivo: '',
         cuerpo: ''
-    }
+    };
+
     const onSubmit = async (values: TypeData, onSubmitProps: FormikHelpers<TypeData>) => {
-        const res = await axios.post('/api/send', values)
-        onSubmitProps.resetForm()
-    }
+
+        const res = await axios.post('/api/send', values);
+        onSubmitProps.resetForm();
+
+    };
+
     //const formik = useFormik<TypeData>({
     // initialValues: {
     //     email: '',
@@ -164,7 +169,8 @@ function ResendPage() {
 
             </div>
         </div>
-    )
-}
+    );
 
-export default ResendPage
+};
+
+export default ResendPage;

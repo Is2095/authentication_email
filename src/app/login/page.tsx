@@ -1,30 +1,37 @@
 "use client"
 
-import { signIn } from "next-auth/react"
-import { FormEvent, useState } from 'react'
-import { useRouter } from "next/navigation"
-import ButtonGithub from "@/components/ButtonGithub"
-import ButtonGoogle from "@/components/ButtonGoogle"
+import { signIn } from "next-auth/react";
+import { FormEvent, useState } from 'react';
+import { useRouter } from "next/navigation";
+import ButtonGithub from "@/components/ButtonGithub";
+import ButtonGoogle from "@/components/ButtonGoogle";
 
 function LoginPage() {
 
-  const router = useRouter()
+  const router = useRouter();
 
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    setError('')
 
-    // esto hace el logueo con las credenciales (formulario de registro) ingresadas
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    setError('');
+
     const res = await signIn('credentials', {
       email: formData.get('email'),
       password: formData.get('password'),
       redirect: false
-    })
-    if (res?.error) return setError(res.error)
-    if (res?.ok) return router.push('/dashboard')
-  }
+    });
+
+    if (res?.error) return setError(res.error);
+
+    if (res?.ok) return router.push('/dashboard');
+
+  };
+
   return (
 
     <div className="justify-center h-[calc(100vh-4rem)] flex flex-col items-center">
@@ -45,7 +52,8 @@ function LoginPage() {
       </div>
     </div>
 
-  )
-}
+  );
 
-export default LoginPage
+};
+
+export default LoginPage;
