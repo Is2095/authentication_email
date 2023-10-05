@@ -61,24 +61,38 @@ function RegisterPage() {
 
     try {
 
-      const confirmacion = await ConfirmacionCorreo(datosConfirmacion);
+      if (error.password === '' && error.email === '' && error.fullname === '') {
 
-      if (confirmacion) {
+        const confirmacion = await ConfirmacionCorreo(datosConfirmacion);
 
-        const res = await axios.post('/api/auth/signup', {
-          email: formData.get('email'),
-          password: formData.get('password'),
-          name: formData.get('fullname')
-        });
 
-        if (res.statusText) {
-          Swal.fire({
-            title: `Bienvenido: ${datosConfirmacion.name}`,
-            text: 'Te has registrado exitosamente',
-            timer: 3000,
-            showConfirmButton: false
+        if (confirmacion) {
+
+          const res = await axios.post('/api/auth/signup', {
+            email: formData.get('email'),
+            password: formData.get('password'),
+            name: formData.get('fullname')
           });
-          return router.push('/');
+
+          if (res.statusText) {
+            Swal.fire({
+              title: `Bienvenido: ${datosConfirmacion.name}`,
+              text: 'Te has registrado exitosamente',
+              timer: 3000,
+              showConfirmButton: false
+            });
+            return router.push('/');
+
+          } else {
+
+            await Swal.fire({
+              icon: 'error',
+              title: 'Algo salió mal!!!',
+              text: 'No se pudo completar la operación'
+            });
+            return router.push('/');
+
+          }
 
         } else {
 
@@ -89,19 +103,8 @@ function RegisterPage() {
           });
           return router.push('/');
 
-        }
-
-      } else {
-
-        await Swal.fire({
-          icon: 'error',
-          title: 'Algo salió mal!!!',
-          text: 'No se pudo completar la operación'
-        });
-        return router.push('/');
-
-      };
-
+        };
+      }
       //esto hace el logueo con las credenciales (formulario de registro) ingresadas
       // const resNextAuth = await signIn('credentials', {
       //   email: res.data.email,

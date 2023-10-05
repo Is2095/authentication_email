@@ -35,7 +35,12 @@ function NavBar() {
             <Link href='/about' className="text-sky-700 hover:text-sky-900 hover:font-bold">About</Link>
           </li>
           <li className="w-[7rem] flex items-center justify-center p-2 b">
-            <Link href='/register' className="text-sky-700 hover:text-sky-900 hover:font-bold">Registrarse</Link>
+            {status === 'authenticated' ? (
+              null
+            ) : (
+              <Link href='/register' className="text-sky-700 hover:text-sky-900 hover:font-bold">Registrarse</Link>
+            )
+            }
           </li>
           {status === 'authenticated' ? (
             <li className="w-20 flex items-center justify-center p-2">
@@ -61,13 +66,13 @@ function NavBar() {
                 className="w-10 h-10 rounded-full cursor-pointer"
               />) : null
           }
-          <li className="flex justify-center py-1">
+          <li className="flex justify-center py-1 mx-2">
             <p className="text-sky-500">{session?.user?.name}</p>
           </li>
         </ul>
       </div>
     </nav>
-    
+
   );
 
 };
