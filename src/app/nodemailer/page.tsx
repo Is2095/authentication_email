@@ -40,6 +40,21 @@ async function NodemailerPage() {
     const onSubmit = async (values: TypeData, onSubmitProps: FormikHelpers<TypeData>) => {
 
         const res = await axios.post('/api/node_mailer', { ...values, remitente: session?.user?.email, nameRemitente: session?.user?.name });
+        
+        if (res.statusText === 'OK') {
+            Swal.fire({
+                title: 'Correo enviado',
+                timer: 2000,
+                showConfirmButton: false,
+                icon: 'success'
+            })
+        } else {
+            Swal.fire({
+                title: 'Error en el envio',
+                icon: 'error'
+            })
+        }
+
         onSubmitProps.resetForm();
 
     }

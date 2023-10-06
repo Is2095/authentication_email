@@ -39,7 +39,22 @@ async function ResendPage() {
 
     const onSubmit = async (values: TypeData, onSubmitProps: FormikHelpers<TypeData>) => {
 
-        const res = await axios.post('/api/send', values);
+        const res = await axios.post('/api/send', values);        
+
+        if (res.statusText === 'OK') {
+            Swal.fire({
+                title: 'Correo enviado',
+                timer: 2000,
+                showConfirmButton: false,
+                icon: 'success'
+            })
+        } else {
+            Swal.fire({
+                title: 'Error en el envio',
+                icon: 'error'
+            })
+        }
+
         onSubmitProps.resetForm();
 
     };
