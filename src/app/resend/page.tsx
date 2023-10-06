@@ -1,10 +1,11 @@
 "use client"
 
-import { FormEvent, useState } from 'react';
 import { useRouter } from "next/navigation";
+import { useSession } from 'next-auth/react';
 import axios from 'axios';
 import { validationSchema } from '@/utils/validate';
 import { useFormik, FormikHandlers, Formik, Form, Field, ErrorMessage, FormikHelpers, FormikProps } from 'formik';
+import Swal from 'sweetalert2';
 
 type TypeData = {
     email: string
@@ -13,9 +14,21 @@ type TypeData = {
     cuerpo: string
 };
 
-function ResendPage() {
+async function ResendPage() {
 
     const router = useRouter();
+    const { data: session, status } = useSession();
+
+
+    if (status === 'unauthenticated') {
+        const login = await Swal.fire({
+            title: 'Debes iniciar sesión',
+            showConfirmButton: true
+        })
+        if (login.isConfirmed) {
+            return router.push('/login')
+        }
+    }
 
     const initialValues = {
         email: '',
