@@ -13,7 +13,7 @@ export const EmailTemplate: React.FC<EmailTemplateProps> = ({
   return (
 
     <div>
-      <h1>Welcome, {firstName}!</h1>
+      <h1>Hola: {firstName}!</h1>
       <p>{cuerpo}</p>
     </div>
 

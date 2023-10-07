@@ -29,10 +29,10 @@ function NavBar() {
         </ul>
         <ul className="flex gap-x-0">
           <li className="w-[5rem] flex items-center justify-center p-2">
-            <Link href='/dashboard' className="text-sky-700 hover:text-sky-900 hover:font-bold">Inicio</Link>
+            <Link href='/' className="text-sky-700 hover:text-sky-900 hover:font-bold">Inicio</Link>
           </li>
-          <li className="w-20 flex items-center justify-center p-2">
-            <Link href='/about' className="text-sky-700 hover:text-sky-900 hover:font-bold">About</Link>
+          <li className="w-28 flex items-center justify-center p-2">
+            <Link href='/about' className="text-sky-700 hover:text-sky-900 hover:font-bold">Acerca de</Link>
           </li>
           <li className="w-[7rem] flex items-center justify-center p-2 b">
             {status === 'authenticated' ? (
@@ -63,7 +63,7 @@ function NavBar() {
                   </svg>
                 </div>
               ) : <img src={session?.user?.image || ''} alt=""
-                className="w-10 h-10 rounded-full cursor-pointer"
+                className="w-10 h-10 rounded-full"
               />) : null
           }
           <li className="flex justify-center py-1 mx-2">

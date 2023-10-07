@@ -126,7 +126,7 @@ function RegisterPage() {
   };
 
   return (
-    <div className="justify-center h-[calc(100vh-4rem)] flex flex-col items-center">
+    <div className="justify-center h-[calc(100vh-12rem)] flex flex-col items-center">
       <div className="flex border border-cyan-700 bg-gradient-to-b from-cyan-200 to-cyan-600 px-8 py-10 h-[26rem] w-3/10 rounded-lg">
         <form onSubmit={handleSubmit} className="flex flex-col justify-end items-center">
           {error.email &&
