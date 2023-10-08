@@ -22,7 +22,7 @@ export const validationSchema = yup.object({
         .string()
         .required("Se requiere este campo")
         .min(5, "El motivo no puede tener menos de 5 caracteres")
-        .max(50, "Sólo se pueden ingresar 10 caracteres")
+        .max(100, "Sólo se pueden ingresar 100 caracteres")
 });
 
 export const validationSchemaWhatsapp = yup.object({

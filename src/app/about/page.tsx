@@ -1,6 +1,6 @@
 "use client"
 
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 
 function AboutPage() {
 
@@ -8,18 +8,18 @@ function AboutPage() {
 
   return (
 
-    <div className="justify-center h-[calc(100vh-12rem)]  flex flex-col items-center ">
+    <div className="justify-top h-[calc(100vh-12rem)]  flex flex-col items-center ">
 
-      <div className='flex '>
-        <h1 className='px-3 text-[3rem] text-sky-800'>
+      <div className='flex pt-10'>
+        <h1 className='px-3 text-[2rem] text-sky-800'>
           Hola:
         </h1>
-        <h2 className='px-3 text-[3rem] text-sky-800'>
+        <h2 className='px-3 text-[2rem] text-sky-800'>
           soy Ismael, un DESARROLLADOR WEB en continuo creciemiento.
         </h2>
       </div>
 
-      <div className='flex flex-col w-[70%] p-5 text-[1.5rem]'>
+      <div className='flex flex-col w-[70%] p-5 text-[1rem]'>
         <p className='py-2 indent-10'>
           En ésta oportunidad les traigo esta aplicación, la cual podés registrarte por medio de "google", "github", y con credenciales o email. En este último caso, se enviará un correo al email ingresado con un código que se deberá ingresar en la aplicación para validar el email y poder finalizar el registro.
         </p>
@@ -42,7 +42,7 @@ function AboutPage() {
 
     </div>
 
-  )
+  );
 
 };
 

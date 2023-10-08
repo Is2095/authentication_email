@@ -67,7 +67,7 @@ async function NodemailerPage() {
     return (
         <div className="justify-center h-[calc(100vh-4rem)] flex flex-col items-center">
             {status === 'authenticated' &&
-                <div className="flex border border-cyan-700 bg-gradient-to-b from-cyan-200 to-cyan-600 px-8 py-10 w-3/10  rounded-lg">
+                <div className="flex border border-cyan-700 bg-gradient-to-b from-cyan-200 to-cyan-600 px-8 py-2 w-3/10  rounded-lg">
                     <Formik
                         initialValues={initialValues}
                         onSubmit={onSubmit}
@@ -78,49 +78,49 @@ async function NodemailerPage() {
                             return (
                                 <Form className="flex flex-col justify-end items-start">
                                     <div className="w-full flex justify-center">
-                                        <h1 className="pb-2 text-3xl font-bold text-sky-700">Nodemailer</h1>
+                                        <h1 className="pb-2 text-4xl font-bold text-sky-700">Nodemailer</h1>
                                     </div>
 
-                                    <h1 className="text-4xl font-bold mb-4">
+                                    <h1 className="text-3xl font-bold mb-4">
                                         Ingrese los datos:
                                     </h1>
-                                    <div className='w-full h-20'>
+                                    <div className='w-full h-16'>
                                         <Field
                                             type="text"
                                             name='email'
                                             placeholder=" Email del destinatario: "
-                                            className="w-full mt-3 p-1 bg-transparent border-2 border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
+                                            className="w-full mt-1 p-1 bg-transparent border-2 border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
                                         />
                                         <ErrorMessage name='email' component='div' className='text-red-600 text-xs font-bold' />
                                     </div>
 
-                                    <div className='w-full h-20'>
+                                    <div className='w-full h-16'>
                                         <Field
                                             type="text"
                                             name='name'
                                             placeholder=" Nombre del destinatario: "
-                                            className="w-full mt-3 p-1 bg-transparent border-2 border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
+                                            className="w-full mt-1 p-1 bg-transparent border-2 border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
                                         />
                                         <ErrorMessage name='name' component='div' className='text-red-600 text-xs font-bold' />
                                     </div>
 
-                                    <div className='w-full h-20'>
+                                    <div className='w-full h-16'>
                                         <Field
                                             type="text"
                                             name='motivo'
                                             placeholder=" Motivo: "
-                                            className="w-full mt-3 p-1 bg-transparent border-2 border-s-2 border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
+                                            className="w-full mt-1 p-1 bg-transparent border-2 border-s-2 border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
                                         />
                                         <ErrorMessage name='motivo' component='div' className='text-red-600 text-xs font-bold' />
                                     </div>
 
-                                    <div className='w-full h-40'>
+                                    <div className='w-full h-36'>
                                         <Field as='textarea'
                                             name='cuerpo'
                                             placeholder=' Mensaje:'
                                             cols={50}
                                             rows={4}
-                                            className="w-full mt-3 p-1 bg-transparent border-2  border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
+                                            className="w-full mt-1 p-1 bg-transparent border-2  border-gray-400 duration-200 focus:border-gray-700 text-black placeholder-gray-500 outline-none"
                                         />
                                         <ErrorMessage name='cuerpo' component='div' className='text-red-600 text-xs font-bold' />
                                     </div>

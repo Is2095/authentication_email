@@ -17,12 +17,18 @@ export const validacionLogin = ({ password, email, fullname }: { password: strin
 
   const regexEmail = /^[a-z0-9._%+-]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
 
-  if (password.length < 6 || !password) return { password: 'El password debe tener más de 6 caracteres', email: '', fullname: '' };
-  if (!email) return { email: 'Debe ingresar un email', password: '', fullname: '' };
-  if (!regexEmail.test(email)) return { email: 'Debe ser un email', password: '', fullname: '' };
-  if (fullname.length < 3 || fullname.length > 15) return { fullname: 'El nombre debe tener entre 3 y 15 caracteres', password: '', email: '' };
+  let error = {
+    password: '',
+    email: '',
+    fullname: ''
+  }
 
-  return { password: '', email: '', fullname: '' };
+  if (password.length < 6 || !password) error.password = 'El password debe tener más de 6 caracteres';
+  if (!email) error.email = 'Debe ingresar un email';
+  if (!regexEmail.test(email)) error.email = 'Debe ser un email';
+  if (fullname.length < 3 || fullname.length > 20) error.fullname = 'El nombre debe tener entre 3 y 20 caracteres';
+
+  return error;
 
 };
 
@@ -61,10 +67,9 @@ function RegisterPage() {
 
     try {
 
-      if (error.password === '' && error.email === '' && error.fullname === '') {
+      if (validacionLogin({ password, email, fullname }).password === '' && validacionLogin({ password, email, fullname }).email === '' && validacionLogin({ password, email, fullname }).fullname === '') {
 
         const confirmacion = await ConfirmacionCorreo(datosConfirmacion);
-
 
         if (confirmacion) {
 
